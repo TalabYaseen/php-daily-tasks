@@ -1,3 +1,7 @@
+<!-- task 8 -->
+<?php
+header("Location:https://www.w3schools.com/php/default.asp");
+?>
 <!-- task 1 -->
 <?php
 echo 'PHP version: ' . phpversion();
@@ -77,9 +81,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </form>
     </body>
 </html>
-<!-- task 8 -->
-<?php
-header("Location:https://www.w3schools.com/php/default.asp");
+
 
 
 

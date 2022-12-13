@@ -1,0 +1,194 @@
+-It is integrated with a number of popular databases, including MySQL, PostgreSQL, Oracle, Sybase, Informix, and Microsoft SQL Server.
+
+-PHP supports a large number of major protocols such as POP3, IMAP, and LDAP. PHP4 added support for Java and distributed object
+ architectures (COM and CORBA), making n-tier development a possibility for the first time.
+
+-PHP tags :
+1- <?php...?>
+2- <?...?>
+Set the short_open_tag setting in your php.ini file to on. This option must be disabled to parse XML with PHP because the same
+ syntax is used for XML tags.
+3-<%...%>
+4-<script language = "PHP">...</script>
+
+-Commenting PHP Code:
+1-#
+2-//
+3- /*   .....    */
+
+-PHP is whitespace insensitive
+
+-PHP is case sensitive
+
+-Statements are expressions terminated by semicolons
+
+-Braces make blocks ( ....  )
+
+* about variables in PHP :
+1- All variables in PHP are denoted with a leading dollar sign ($).
+
+2-The value of a variable is the value of its most recent assignment.
+
+3-Variables are assigned with the = operator, with the variable on the left-hand side and the expression to be evaluated on the right.
+
+4-Variables can, but do not need, to be declared before assignment.
+
+5-Variables in PHP do not have intrinsic types - a variable does not know in advance whether it will be used to store a number or a string
+ of characters.
+
+6-Variables used before they are assigned have default values.
+
+7-PHP does a good job of automatically converting types from one to another when necessary.
+
+8-PHP variables are Perl-like.
+
+*PHP has a total of eight data types which we use to construct our variables −
+
+1-Integers − are whole numbers, without a decimal point, like 4195.
+
+2-Doubles − are floating-point numbers, like 3.14159 or 49.1.
+
+3-Booleans − have only two possible values either true or false.
+
+4-NULL − is a special type that only has one value: NULL.
+
+5-Strings − are sequences of characters, like 'PHP supports string operations.'
+
+6-Arrays − are named and indexed collections of other values.
+
+7-Objects − are instances of programmer-defined classes, which can package up both other kinds of values and functions that are
+ specific to the class.
+
+8-Resources − are special variables that hold references to resources external to PHP (such as database connections).
+
+
+*Here are the rules for determine the "truth" of any value not already of the Boolean type −
+
+1-If the value is a number, it is false if exactly equal to zero and true otherwise.
+
+2-If the value is a string, it is false if the string is empty (has zero characters) or is the string "0", and is true otherwise.
+
+3-Values of type NULL are always false.
+
+4-If the value is an array, it is false if it contains no other values, and it is true otherwise. For an object,
+ containing a value means having a member variable that has been assigned a value.
+
+5-Valid resources are true (although some functions that return resources when they are successful will return FALSE when unsuccessful).
+
+6-Don't use double as Booleans.
+
+*Strings : They are sequences of characters, like "PHP supports string operations". Following are valid examples of string
+
+-Singly quoted strings are treated almost literally, whereas doubly quoted strings replace variables with their values as well as
+ specially interpreting certain character sequences.
+
+*The escape-sequence replacements are :
+1-\n is replaced by the newline character
+2-\r is replaced by the carriage-return character
+3-\t is replaced by the tab character
+4-\$ is replaced by the dollar sign itself ($)
+5-\" is replaced by a single double-quote (")
+6-\\ is replaced by a single backslash (\)
+
+*Variable Scope :
+Scope can be defined as the range of availability a variable has to the program in which it is declared.
+ PHP variables can be one of four scope types :
+
+1-Local variables
+
+2-Function parameters
+
+3-Global variables
+
+4-Static variables
+
+* Local Variables ::
+A variable declared in a function is considered local; that is, it can be referenced solely in that function.
+ Any assignment outside of that function will be considered to be an entirely different variable from the one contained in the function. 
+
+* Function Parameters
+Function parameters are declared after the function name and inside parentheses. They are declared much like a typical variable would be.
+
+* Global Variables
+In contrast to local variables, a global variable can be accessed in any part of the program. However, in order to be modified,
+ a global variable must be explicitly declared to be global in the function in which it is to be modified. This is accomplished,
+ conveniently enough, by placing the keyword GLOBAL in front of the variable that should be recognized as global. Placing this keyword
+ in front of an already existing variable tells PHP to use the variable having that name.
+
+ex:
+<?php
+   $somevar = 15;
+   
+   function addit() {
+      GLOBAL $somevar;
+      $somevar++;
+      
+      print "Somevar is $somevar";
+   }
+   
+   addit();
+?>
+
+*Static Variables
+The final type of variable scoping that I discuss is known as static. In contrast to the variables declared as function parameters,
+ which are destroyed on the function's exit, a static variable will not lose its value when the function exits and will still hold
+ that value should the function be called again.
+
+You can declare a variable to be static simply by placing the keyword STATIC in front of the variable name.
+
+ex :
+
+<?php
+   function keep_track() {
+      STATIC $count = 0;
+      $count++;
+      print $count;
+      print "<br />";
+   }
+   
+   keep_track();
+   keep_track();
+   keep_track();
+?>
+
+*Variable Naming:
+1-Variable names must begin with a letter or underscore character.
+
+2-A variable name can consist of numbers, letters, underscores but you cannot use characters like + , - , % , ( , ) . & , etc
+
+*Constants Types :
+A constant is a name or an identifier for a simple value. A constant value cannot change during the execution of the script.
+ By default, a constant is case-sensitive. By convention, constant identifiers are always uppercase. A constant name starts with a letter
+ or underscore, followed by any number of letters, numbers, or underscores. If you have defined a constant, it can never be changed or
+ undefined.
+
+-To define a constant you have to use define() function and to retrieve the value of a constant, you have to simply specifying its name.
+ Unlike with variables, you do not need to have a constant with a $. You can also use the function constant() to read a constant's value
+ if you wish to obtain the constant's name dynamically.
+
+ex:
+
+<?php
+   define("MINSIZE", 50);
+   
+   echo MINSIZE;
+   echo constant("MINSIZE"); // same thing as the previous line
+?>
+Only scalar data (boolean, integer, float and string) can be contained in constants.
+
+* Differences between constants and variables are :
+1-There is no need to write a dollar sign ($) before a constant, where as in Variable one has to write a dollar sign.
+
+2-Constants cannot be defined by simple assignment, they may only be defined using the define() function.
+
+3-Constants may be defined and accessed anywhere without regard to variable scoping rules.
+
+4-Once the Constants have been set, may not be redefined or undefined.
+
+
+
+
+
+
+
+
